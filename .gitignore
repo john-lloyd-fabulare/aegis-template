@@ -1,0 +1,9 @@
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Uncomment if you'd rather not commit unfiled material:
+# input/
