@@ -52,6 +52,19 @@ A source gets a full Details section in its **primary** hub and a one-line point
 
 **Never split a hub by source type or provenance**: that produces two hubs answering the same question. Sub-hub splits are triggered by an incoherent synthesis and are **proposed, never made unilaterally**.
 
+## Chat report after a meeting ingest
+
+**Every meeting or call ingest ends with this report in chat, in this order, whether or not the owner asked for tasks.** A layout kept only as a habit does not survive a new session, so it lives here.
+
+1. **Filed.** One line: what was filed, the page links, and any duplicate, empty or misdated source found.
+2. **Summary, one section per meeting.** Heading: name, local date and time, length, and whether the owner attended. Then the main outcome first, followed by the substance in short bullets with timestamps where useful.
+3. **Your tasks.** The owner's actions. Each one also lives as a `- [ ]` line on its owning page.
+4. **Tasks for others.** One block per other person with actions (for example, the principal the owner supports). Same rule.
+5. **Flags.** Risks, unverified figures, contradictions with the vault, and the assistant's own view where the owner may be wrong. Say "none" if empty.
+6. **Questions for the owner.** Batched: checkboxes to tick, missing inputs (emails, surnames), routing calls.
+
+Personal or sensitive detail left out of the vault is named as left out, never summarised.
+
 ## Cautions earned the hard way
 
 - **A derived artifact is not a second source.** An auto-summary generated from a defective transcript reproduces its errors and reads as independent corroboration. When speaker labels are suspect, the recording is the only check.
