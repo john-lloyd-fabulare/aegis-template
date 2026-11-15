@@ -13,6 +13,23 @@ description: >
 
 Collaborative filing, not one-shot summarisation. **Read sources in full, including referenced images.** Discuss the key takeaways with the principal before writing, unless they've said to just proceed.
 
+## Binary sources: convert before reading
+
+**A PDF, DOCX, PPTX, XLSX or scanned image is converted to Markdown first, before any of it is read.** Reading a book-length PDF directly costs 20 pages per call with page images rendered. The same book as Markdown is greppable and reads in 100-line slices. DOCX, PPTX and XLSX cannot be read at all without this step.
+
+**Setup (once):** create a Python virtual environment in the vault root and install Docling into it: `python -m venv .venv`, then `.venv/Scripts/pip install docling` on Windows (`.venv/bin/pip` elsewhere). `.venv/` is gitignored and skipped by the linter.
+
+```
+.venv/Scripts/python.exe .claude/scripts/ingest_convert.py --list
+.venv/Scripts/python.exe .claude/scripts/ingest_convert.py
+```
+
+`--list` shows the queue and file sizes without converting. The converter prints a **token estimate per output file**. **Read that number before opening the result.** A book-length file can be larger than the context window: locate the part you need with `grep -n`, then read only that range. Never open one whole.
+
+**The Markdown is an extraction, not a second source.** The original binary stays the citable source file. Both move to `raw/` together with the same basename, and both take the type prefix at filing time. One `wiki/sources/` page covers the pair, and `sources:` cites the `.md`.
+
+Conversion is local and costs no tokens, but it takes time: budget roughly a second per page on CPU. Run it as a batch and let it finish.
+
 ## Definition of done
 
 Verify each and **report the result** before saying it is complete. Work reported done without a verification step is the failure this checklist exists to prevent.
@@ -63,7 +80,7 @@ A source gets a full Details section in its **primary** hub and a one-line point
 5. **Flags.** Risks, unverified figures, contradictions with the vault, and the assistant's own view where the owner may be wrong. Say "none" if empty.
 6. **Questions for the owner.** Batched: checkboxes to tick, missing inputs (emails, surnames), routing calls.
 
-Personal or sensitive detail left out of the vault is named as left out, never summarised.
+**File everything, personal detail included.** The vault is the owner's private record, so nothing heard on a call is withheld from it. Put personal or sensitive detail under a `## Personal context` heading on the meeting page, so it is easy to find and easy to exclude if a page is ever shared.
 
 ## Cautions earned the hard way
 

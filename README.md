@@ -112,7 +112,7 @@ wiki/                everything generated
 
 .claude/
   skills/            six procedures, loaded on demand
-  scripts/           five Python maintenance scripts
+  scripts/           six Python maintenance scripts
 ```
 
 ### The scripts
@@ -129,6 +129,7 @@ python .claude/scripts/aegis_lint.py -v
 | `gen_index.py` | Regenerates `index.md`, preserving hand-written descriptions. `--apply` to write. |
 | `append_section.py` | Adds a line under a heading **without loading the page**. Thousands of tokens → about twenty. |
 | `hub_audit.py` | Before splitting an oversized hub, says which sections are the only copy of their content. |
+| `owner_tasks.py` | Lists one owner's open `- [ ] Owner:` task lines from every page's `## Tasks` section, newest first. `--owner Alex`, plus `--days` and `--json`. Reads only, so tasks never get a second copy. |
 | `welcome.py` | Prints the paste-ready welcome message after setup. `--tour` for the longer version. |
 
 ---

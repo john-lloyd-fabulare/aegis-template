@@ -3,6 +3,7 @@
 .DS_Store
 Thumbs.db
 __pycache__/
+.venv/
 *.pyc
 
 # Uncomment if you'd rather not commit unfiled material:

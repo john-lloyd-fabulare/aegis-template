@@ -74,6 +74,7 @@ Each loads a skill on demand. **The detail is deliberately not in this file.**
 | First run only (the setup interview | `SETUP.md`) **delete this row when setup removes that file** |
 | A file appears in `input/`, or source content is pasted | `.claude/skills/aegis-ingest/SKILL.md` |
 | **Content for a named client** | **`.claude/skills/aegis-content/SKILL.md`: mandatory voice gate** |
+| **A message sent under someone's own name** (email, DM, reply) | **`.claude/skills/aegis-messages/SKILL.md`: mandatory voice gate** |
 | A question about the principal, a client, a topic, or provenance | `.claude/skills/aegis-query/SKILL.md` |
 | "What's broken", a health check, a cleanup, a lint pass | `.claude/skills/aegis-lint/SKILL.md` |
 | Creating, editing, renaming or filing any wiki page | `.claude/skills/aegis-vault-writing/SKILL.md` |
@@ -88,7 +89,7 @@ Each loads a skill on demand. **The detail is deliberately not in this file.**
 
 ### Next actions
 
-**A next action lives on the page that owns it**, as a `- [ ]` line under that page's `## Tasks` heading. There is no separate board. **Never copy the same action onto a second page.**
+**A next action lives on the page that owns it**, as a `- [ ]` line under that page's `## Tasks` heading. There is no separate board. **Never copy the same action onto a second page.** Start each line with its owner (`- [ ] Alex: ...`). To see one person's open tasks across the vault, run `python .claude/scripts/owner_tasks.py --owner Alex`.
 
 `hot.md` holds the intelligence: why a thing matters, what the risk is, what contradicts what. The owning work item or project page holds the atom: the next physical action. **A session that produces a next action writes it to the owning page before the session ends.**
 
@@ -121,6 +122,8 @@ Not everything arrives as a named source. If conversation settles a decision, lo
 ## Working agreement
 
 - **Nothing durable lives only in the scratchpad.** A session temp or scratch directory is a **build area, not storage**: machine-local, outside version control, invisible to any other runtime, and impermanent. **Anything the principal is shown, sent, or asked to act on gets written into the vault in the same session**, not just handed over in chat. That includes drafts, emails, documents, scripts and generated files. Markdown is the source of truth; built binaries (`.docx`, `.pdf`, images) sit beside it in an `assets/` subfolder together with the script that produced them, so any of it can be rebuilt. **Filing after delivery is not filing: do it as part of delivering.**
+- **Hand over built files as links.** When a task ends in local files (renders, exports, images), close the delivery with a links block: each output folder opened in the system file manager with the runtime's reveal tool where it has one (plain `file:///` links often do not open), then one link per file grouped by kind, then the link to any hosted page or canvas that shows the work. Write file links relative to the working directory and wrap paths that contain spaces in angle brackets: `[label](<path with spaces.mp4>)`.
+- **Split hand-over files from build files.** When a deliverable set has many build files (scripts, logs, json, stills, old drafts), give its assets folder two parts: `Deliverables/`, one subfolder per item holding only the latest files a client receives, and `_production/`, holding everything else. A small script puts the latest outputs into `Deliverables/` (hard links where the file system allows, so no disk space doubles) and runs after every build. Never build into `Deliverables/` directly, and keep it out of version control, because the script rebuilds it.
 - **Disagree when the principal is wrong.** Covers facts, plans, classification calls, and technical judgment. Soft-pedalling into apparent agreement is the failure mode. Corollary: when they correct you and they're right, say so plainly rather than hedging it into a draw. *(Setup calibrates how blunt this is; it never removes it.)*
 - **Cite or flag, never state an unverified claim as fact.** Every claim, number, quote or date traces to a vault file (cite the `[[wikilink]]`) or a live check, not to recall from training data. If it can't be traced, mark it unverified.
 - **Don't fabricate.** Missing information means a stub or a question, not invented detail.

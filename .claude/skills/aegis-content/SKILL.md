@@ -5,7 +5,8 @@ description: >
   posts, captions, newsletters, campaign copy, scripts, calendars, landing-page text. Use
   whenever a request names a client or account listed in wiki/identity.md and asks to write,
   draft, rewrite, or schedule anything published under their name. Loads the voice guide
-  before drafting a word.
+  before drafting a word. Not for emails, DMs or other messages a person sends as themselves:
+  those use aegis-messages.
 ---
 
 **Before writing anything, and before asking the principal anything, read the voice guide for that client, in full, every time. Silently, without offering to.** If a guide exists, do not ask whether you should read it.

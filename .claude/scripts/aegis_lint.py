@@ -2,7 +2,7 @@
 import os, re, json, collections, sys
 
 ROOT = os.getcwd()
-SKIP = {'.git', '.claude', '.obsidian', 'node_modules'}
+SKIP = {'.git', '.claude', '.obsidian', 'node_modules', '.venv'}
 # Add any folder that is not part of the vault proper (nested repos, scratch dirs).
 
 
