@@ -150,6 +150,16 @@ python .claude/scripts/aegis_lint.py -v
 
 ---
 
+## Viewing the vault
+
+The vault is plain Markdown with `[[wikilinks]]`, so any editor can open it. A Markdown knowledge-base app makes it far easier to see.
+
+- **[Obsidian](https://obsidian.md)** (recommended): open the folder as a vault. The graph view shows how people, projects and topics connect, backlinks show every page that points at the one you are reading, and Dataview can query the frontmatter. The template ships an `.obsidian/` folder ready to use. See [GUIDE.md](GUIDE.md) for setup.
+- **[Foam](https://foambubble.github.io/foam/)** for VS Code: wikilinks, backlinks and a graph inside the editor, useful if you already work there.
+- **[Logseq](https://logseq.com)** can also open a folder of Markdown files, though it is outline-first and may reformat pages, so test it on a copy first.
+
+The agent does not need any of these. They are for you, to browse and check what it has written.
+
 ## Adapting it
 
 - **Another runtime?** Write a new adapter next to `CLAUDE.md` that imports `AGENTS.md` and describes that runtime's tool access. Don't fork the core.
