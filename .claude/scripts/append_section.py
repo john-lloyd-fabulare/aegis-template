@@ -14,6 +14,13 @@ Prints only what changed. Never echoes the file.
 """
 import io, os, sys
 
+# A cp1252 Windows console cannot print emoji, so the success message used to crash after
+# a correct write. Replace unprintable characters instead of raising.
+try:
+    sys.stdout.reconfigure(errors='replace')
+except AttributeError:
+    pass
+
 args = [a for a in sys.argv[1:] if not a.startswith('--')]
 FLAGS = {a for a in sys.argv[1:] if a.startswith('--')}
 if len(args) != 3:
